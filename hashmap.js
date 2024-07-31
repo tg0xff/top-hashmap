@@ -12,7 +12,7 @@ export default class HashMap {
     }
     return hashCode % this.capacity;
   }
-  updateBucket(index) {
+  checkIndex(index) {
     if (index < 0 || index >= this.capacity) {
       throw new Error("Trying to access index out of bound");
     }
