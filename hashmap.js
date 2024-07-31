@@ -25,6 +25,7 @@ export default class HashMap {
       value,
       next: null,
     };
+
     let currentBucketItem = this.buckets[hashCode];
     while (currentBucketItem) {
       if (currentBucketItem.key === data.key) {
@@ -36,6 +37,7 @@ export default class HashMap {
       }
       currentBucketItem = currentBucketItem.next;
     }
+
     this.buckets[hashCode] = data;
   }
 }
