@@ -19,6 +19,7 @@ export default class HashMap {
   }
   set(key, value) {
     const hashCode = this.hash(key);
+    this.checkIndex(hashCode);
     const data = {
       key,
       value,
