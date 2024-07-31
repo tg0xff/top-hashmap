@@ -78,4 +78,15 @@ export default class HashMap {
     }
     return false;
   }
+  length() {
+    let length = 0;
+    for (const bucket of this.buckets) {
+      let listItem = bucket;
+      while (listItem) {
+        length++;
+        listItem = listItem.next;
+      }
+    }
+    return length;
+  }
 }
