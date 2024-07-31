@@ -10,7 +10,7 @@ export default class HashMap {
     for (let i = 0; i < key.length; i++) {
       hashCode = primeNumber * hashCode + key.charCodeAt(i);
     }
-    return hashCode;
+    return hashCode % this.capacity;
   }
   updateBucket(index, value) {
     if (index < 0 || index >= this.capacity) {
