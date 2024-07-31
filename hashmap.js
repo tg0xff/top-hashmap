@@ -40,4 +40,15 @@ export default class HashMap {
 
     this.buckets[hashCode] = data;
   }
+  get(key) {
+    const hashCode = this.hash(key);
+    let currentBucketItem = this.buckets[hashCode];
+    while (currentBucketItem) {
+      if (key === currentBucketItem.key) {
+        return currentBucketItem.value;
+      }
+      currentBucketItem = currentBucketItem.next;
+    }
+    return null;
+  }
 }
