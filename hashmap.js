@@ -12,11 +12,22 @@ export default class HashMap {
     }
     return hashCode % this.capacity;
   }
-  updateBucket(index, value) {
+  updateBucket(index, data) {
     if (index < 0 || index >= this.capacity) {
       throw new Error("Trying to access index out of bound");
     }
-    this.buckets[index] = value;
+    let currentBucketItem = this.buckets[index];
+    while (currentBucketItem) {
+      if (currentBucketItem.key === data.key) {
+        currentBucketItem.value = data.value;
+        return;
+      } else if (currentBucketItem.next === null) {
+        currentBucketItem.next = data;
+        return;
+      }
+      currentBucketItem = currentBucketItem.next;
+    }
+    this.buckets[index] = data;
   }
   set(key, value) {
     const hashCode = this.hash(key);
