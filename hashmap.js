@@ -51,4 +51,15 @@ export default class HashMap {
     }
     return null;
   }
+  has(key) {
+    const hashCode = this.hash(key);
+    let currentBucketItem = this.buckets[hashCode];
+    while (currentBucketItem) {
+      if (key === currentBucketItem.key) {
+        return true;
+      }
+      currentBucketItem = currentBucketItem.next;
+    }
+    return false;
+  }
 }
