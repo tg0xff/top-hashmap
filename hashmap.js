@@ -1,4 +1,8 @@
 export default class HashMap {
+  constructor() {
+    this.capacity = 16;
+    this.loadFactor = 0.75;
+  }
   hash(key) {
     let hashCode = 0;
     const primeNumber = 31;
