@@ -34,3 +34,16 @@ console.log(hashMap.buckets);
 hashMap.set("moon", "silver");
 console.log("Surpassed load factor with 'moon' key:");
 console.log(hashMap.buckets);
+
+hashMap.set("moon", "pale");
+console.log("Changed value of 'moon':");
+console.log(hashMap.buckets);
+hashMap.set("elephant", "pink");
+console.log("Changed value of 'elephant':");
+console.log(hashMap.buckets);
+hashMap.set("lion", "lion coloured");
+console.log("Changed value of 'lion':");
+console.log(hashMap.buckets);
+hashMap.set("banana", "nuclear");
+console.log("Changed value of 'banana':");
+console.log(hashMap.buckets);
