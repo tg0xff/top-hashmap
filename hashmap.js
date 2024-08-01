@@ -1,4 +1,4 @@
-export default class HashMap {
+export class HashMap {
   #capacity = 16;
   #loadFactor = 0.75;
   buckets = [];
@@ -122,7 +122,7 @@ export default class HashMap {
   }
 }
 
-class HashSet {
+export class HashSet {
   buckets = [];
   #capacity = 16;
   #loadFactor = 0.75;
