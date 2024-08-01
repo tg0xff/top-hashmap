@@ -44,9 +44,11 @@ export default class HashMap {
     return true;
   }
   set(key, value) {
-    this.#resize();
     if (this.#addOrUpdateKey(key, value)) {
       this.#length++;
+    }
+    if (this.#length > this.#capacity * this.#loadFactor) {
+      this.#resize();
     }
   }
   get(key) {
@@ -120,7 +122,6 @@ export default class HashMap {
     return this.#makeArray((listItem) => [listItem.key, listItem.value]);
   }
   #resize() {
-    if (this.#length < this.#capacity * this.#loadFactor) return;
     this.#capacity *= 2;
     const entries = this.entries();
     this.buckets = [];
