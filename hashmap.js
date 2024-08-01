@@ -18,6 +18,7 @@ export default class HashMap {
     }
   }
   set(key, value) {
+    this.#resize();
     const hashCode = this.hash(key);
     this.checkIndex(hashCode);
     const data = {
@@ -114,5 +115,12 @@ export default class HashMap {
   }
   entries() {
     return this.#makeArray((listItem) => [listItem.key, listItem.value]);
+  }
+  #resize() {
+    if (this.length() < (this.capacity * this.loadFactor)) return;
+    this.capacity *= 2;
+    const entries = this.entries();
+    this.buckets = [];
+    entries.forEach((entry) => this.set(...entry));
   }
 }
