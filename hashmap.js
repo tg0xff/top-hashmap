@@ -2,7 +2,7 @@ export default class HashMap {
   #capacity = 16;
   #loadFactor = 0.75;
   #buckets = [];
-  hash(key) {
+  #hash(key) {
     let hashCode = 0;
     const primeNumber = 31;
     for (let i = 0; i < key.length; i++) {
@@ -17,7 +17,7 @@ export default class HashMap {
   }
   set(key, value) {
     this.#resize();
-    const hashCode = this.hash(key);
+    const hashCode = this.#hash(key);
     this.checkIndex(hashCode);
     const data = {
       key,
@@ -40,7 +40,7 @@ export default class HashMap {
     this.#buckets[hashCode] = data;
   }
   get(key) {
-    const hashCode = this.hash(key);
+    const hashCode = this.#hash(key);
     this.checkIndex(hashCode);
     let currentBucketItem = this.#buckets[hashCode];
     while (currentBucketItem) {
@@ -52,7 +52,7 @@ export default class HashMap {
     return null;
   }
   has(key) {
-    const hashCode = this.hash(key);
+    const hashCode = this.#hash(key);
     this.checkIndex(hashCode);
     let currentBucketItem = this.#buckets[hashCode];
     while (currentBucketItem) {
@@ -64,7 +64,7 @@ export default class HashMap {
     return false;
   }
   remove(key) {
-    const hashCode = this.hash(key);
+    const hashCode = this.#hash(key);
     this.checkIndex(hashCode);
     let currentBucketItem = this.#buckets[hashCode];
     if (key === currentBucketItem.key) {
