@@ -11,17 +11,11 @@ export default class HashMap {
     }
     return hashCode % this.#capacity;
   }
-  #checkIndex(index) {
-    if (index < 0 || index >= this.#capacity) {
-      throw new Error("Trying to access index out of bound");
-    }
-  }
   // This helper method is necessary because if it didn't exist the
   // #length field would be erroneously doubled each time #resize() is
   // called.
   #addOrUpdateKey(key, value) {
     const hashCode = this.#hash(key);
-    this.#checkIndex(hashCode);
     const data = {
       key,
       value,
@@ -53,7 +47,6 @@ export default class HashMap {
   }
   get(key) {
     const hashCode = this.#hash(key);
-    this.#checkIndex(hashCode);
     let currentBucketItem = this.buckets[hashCode];
     while (currentBucketItem) {
       if (key === currentBucketItem.key) {
@@ -65,7 +58,6 @@ export default class HashMap {
   }
   has(key) {
     const hashCode = this.#hash(key);
-    this.#checkIndex(hashCode);
     let currentBucketItem = this.buckets[hashCode];
     while (currentBucketItem) {
       if (key === currentBucketItem.key) {
@@ -77,7 +69,6 @@ export default class HashMap {
   }
   remove(key) {
     const hashCode = this.#hash(key);
-    this.#checkIndex(hashCode);
     let currentBucketItem = this.buckets[hashCode];
     if (currentBucketItem) {
       if (key === currentBucketItem.key) {
