@@ -89,4 +89,8 @@ export default class HashMap {
     }
     return length;
   }
+  clear() {
+    this.capacity = 16;
+    this.buckets = [];
+  }
 }
