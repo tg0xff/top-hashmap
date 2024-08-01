@@ -135,4 +135,26 @@ class HashSet {
     }
     return hashCode % this.#capacity;
   }
+  #addKey(key) {
+    const hashCode = this.#hash(key);
+    const data = {
+      key,
+      next: null,
+    };
+    let listItem = this.buckets[hashCode];
+    while (listItem) {
+      if (key === listItem) {
+        return false;
+      } else if (listItem.next === null) {
+        listItem.next = data;
+        return true;
+      }
+      listItem = listItem.next;
+    }
+    this.buckets[hashCode] = data;
+    return true;
+  }
+  set(key) {
+    if (this.#addKey(key)) this.#length++;
+  }
 }
