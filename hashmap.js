@@ -99,6 +99,7 @@ export default class HashMap {
   clear() {
     this.#capacity = 16;
     this.#buckets = [];
+    this.#length = 0;
   }
   #makeArray(cb) {
     return this.#buckets.reduce((array, bucket) => {
