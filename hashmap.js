@@ -79,18 +79,20 @@ export default class HashMap {
     const hashCode = this.#hash(key);
     this.#checkIndex(hashCode);
     let currentBucketItem = this.buckets[hashCode];
-    if (key === currentBucketItem.key) {
-      this.buckets[hashCode] = currentBucketItem.next;
-      this.#length--;
-      return true;
-    }
-    while (currentBucketItem) {
-      if (currentBucketItem.next && key === currentBucketItem.next.key) {
-        currentBucketItem.next = currentBucketItem.next.next;
+    if (currentBucketItem) {
+      if (key === currentBucketItem.key) {
+        this.buckets[hashCode] = currentBucketItem.next;
         this.#length--;
         return true;
       }
-      currentBucketItem = currentBucketItem.next;
+      do {
+        if (currentBucketItem.next && key === currentBucketItem.next.key) {
+          currentBucketItem.next = currentBucketItem.next.next;
+          this.#length--;
+          return true;
+        }
+        currentBucketItem = currentBucketItem.next;
+      } while (currentBucketItem);
     }
     return false;
   }
