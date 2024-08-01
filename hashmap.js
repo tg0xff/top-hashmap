@@ -2,6 +2,7 @@ export default class HashMap {
   #capacity = 16;
   #loadFactor = 0.75;
   #buckets = [];
+  #length = 0;
   #hash(key) {
     let hashCode = 0;
     const primeNumber = 31;
