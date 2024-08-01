@@ -10,7 +10,7 @@ export default class HashMap {
     }
     return hashCode % this.#capacity;
   }
-  checkIndex(index) {
+  #checkIndex(index) {
     if (index < 0 || index >= this.#capacity) {
       throw new Error("Trying to access index out of bound");
     }
@@ -18,7 +18,7 @@ export default class HashMap {
   set(key, value) {
     this.#resize();
     const hashCode = this.#hash(key);
-    this.checkIndex(hashCode);
+    this.#checkIndex(hashCode);
     const data = {
       key,
       value,
@@ -41,7 +41,7 @@ export default class HashMap {
   }
   get(key) {
     const hashCode = this.#hash(key);
-    this.checkIndex(hashCode);
+    this.#checkIndex(hashCode);
     let currentBucketItem = this.#buckets[hashCode];
     while (currentBucketItem) {
       if (key === currentBucketItem.key) {
@@ -53,7 +53,7 @@ export default class HashMap {
   }
   has(key) {
     const hashCode = this.#hash(key);
-    this.checkIndex(hashCode);
+    this.#checkIndex(hashCode);
     let currentBucketItem = this.#buckets[hashCode];
     while (currentBucketItem) {
       if (key === currentBucketItem.key) {
@@ -65,7 +65,7 @@ export default class HashMap {
   }
   remove(key) {
     const hashCode = this.#hash(key);
-    this.checkIndex(hashCode);
+    this.#checkIndex(hashCode);
     let currentBucketItem = this.#buckets[hashCode];
     if (key === currentBucketItem.key) {
       this.#buckets[hashCode] = currentBucketItem.next;
