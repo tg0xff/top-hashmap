@@ -15,13 +15,18 @@ hashMap.set("jacket", "blue");
 hashMap.set("kite", "pink");
 hashMap.set("lion", "golden");
 
-console.log(`Populated hash map before going load factor:\n${hashMap.entries()}`)
+console.log("Populated hash map before going load factor:")
+console.log(hashMap.entries());
 
 hashMap.set("hat", "rainbow");
-console.log(`Changed value of 'hat':\n${hashMap.entries()}`);
+console.log("Changed value of 'hat':");
+console.log(hashMap.entries());
 hashMap.set("kite", "mauve");
-console.log(`Changed value of 'kite':\n${hashMap.entries()}`);
+console.log("Changed value of 'kite':");
+console.log(hashMap.entries());
 hashMap.set("grape", "light green");
-console.log(`Changed value of 'grape':\n${hashMap.entries()}`);
+console.log("Changed value of 'grape':");
+console.log(hashMap.entries());
 hashMap.set("hat", "black");
-console.log(`Changed value of 'hat' again:\n${hashMap.entries()}`);
+console.log("Changed value of 'hat' again:");
+console.log(hashMap.entries());
