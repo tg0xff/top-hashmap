@@ -55,3 +55,7 @@ console.log(`Testing get("mon") (non-existent): ${hashMap.get("mon")}`);
 console.log(`Testing has("banana"): ${hashMap.has("banana")}`);
 console.log(`Testing has("lion"): ${hashMap.has("lion")}`);
 console.log(`Testing has("caramel") (non-existent): ${hashMap.has("caramel")}`);
+
+console.log(`Testing remove("frog"): ${hashMap.remove("frog")}`);
+console.log(`Testing remove("lion"): ${hashMap.remove("lion")}`);
+console.log(`Testing remove("camel") (non-existent): ${hashMap.remove("camel")}`);
