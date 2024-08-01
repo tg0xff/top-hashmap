@@ -193,4 +193,13 @@ class HashSet {
     this.#length = 0;
     this.#capacity = 16;
   }
+  keys() {
+    return this.buckets.reduce((array, bucket) => {
+      let listItem = bucket;
+      while (listItem) {
+        array.push(listItem.key);
+        listItem = listItem.next;
+      }
+    }, []);
+  }
 }
