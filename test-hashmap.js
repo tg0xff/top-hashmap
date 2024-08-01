@@ -1,4 +1,4 @@
-import { HashMap } from "./hashmap.js";
+import { HashMap } from "./hash-classes.js";
 
 export default function testHashMap() {
   console.log("Testing hash map implementation.")

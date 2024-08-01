@@ -1,4 +1,4 @@
-import { HashSet } from "./hashmap.js";
+import { HashSet } from "./hash-classes.js";
 
 export default function testHashSet() {
   console.log("Testing hash set implementation.");
