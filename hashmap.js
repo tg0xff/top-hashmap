@@ -201,6 +201,7 @@ export class HashSet {
         array.push(listItem.key);
         listItem = listItem.next;
       }
+      return array;
     }, []);
   }
   #resize() {
