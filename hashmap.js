@@ -143,7 +143,7 @@ class HashSet {
     };
     let listItem = this.buckets[hashCode];
     while (listItem) {
-      if (key === listItem) {
+      if (listItem.key === key) {
         return false;
       } else if (listItem.next === null) {
         listItem.next = data;
