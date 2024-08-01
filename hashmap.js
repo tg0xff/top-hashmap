@@ -96,4 +96,15 @@ export default class HashMap {
     this.capacity = 16;
     this.buckets = [];
   }
+  keys() {
+    const keys = [];
+    for (const bucket of this.buckets) {
+      let listItem = bucket;
+      while (listItem) {
+        keys.push(listItem.key);
+        listItem = listItem.next;
+      }
+    }
+    return keys;
+  }
 }
