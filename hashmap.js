@@ -113,7 +113,7 @@ export default class HashMap {
     return this.#makeArray((listItem) => [listItem.key, listItem.value]);
   }
   #resize() {
-    if (this.length() < this.#capacity * this.#loadFactor) return;
+    if (this.#length < this.#capacity * this.#loadFactor) return;
     this.#capacity *= 2;
     const entries = this.entries();
     this.#buckets = [];
