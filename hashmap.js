@@ -156,6 +156,7 @@ class HashSet {
   }
   set(key) {
     if (this.#addKey(key)) this.#length++;
+    if (this.#length > this.#capacity * this.#loadFactor) this.#resize();
   }
   has(key) {
     for (const bucket of buckets) {
