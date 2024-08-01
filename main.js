@@ -51,3 +51,7 @@ console.log(hashMap.buckets);
 console.log(`Testing get("lion"): ${hashMap.get("lion")}`);
 console.log(`Testing get("moon"): ${hashMap.get("moon")}`);
 console.log(`Testing get("mon") (non-existent): ${hashMap.get("mon")}`);
+
+console.log(`Testing has("banana"): ${hashMap.has("banana")}`);
+console.log(`Testing has("lion"): ${hashMap.has("lion")}`);
+console.log(`Testing has("caramel") (non-existent): ${hashMap.has("caramel")}`);
