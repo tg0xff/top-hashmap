@@ -32,4 +32,7 @@ export default function testHashSet() {
   hashSet.set("lambda");
   console.log("Surpassed load factor with 'lambda' key:");
   console.log(hashSet.buckets);
+
+  console.log(`Testing has("lambda"): ${hashSet.has("lambda")}`);
+  console.log(`Testing has("lol") (non-existent): ${hashSet.has("lol")}`);
 }
