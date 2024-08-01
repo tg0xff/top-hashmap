@@ -185,4 +185,7 @@ class HashSet {
     }
     return false;
   }
+  length() {
+    return this.#length;
+  }
 }
