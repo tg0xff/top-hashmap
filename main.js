@@ -65,3 +65,10 @@ console.log(hashMap.buckets);
 hashMap.set("axolotl", "pink");
 console.log(`Added 'axolotl' and testing length() again: ${hashMap.length()}`);
 console.log(hashMap.buckets);
+
+console.log("Testing keys():");
+console.log(hashMap.keys());
+console.log("Testing values():");
+console.log(hashMap.values());
+console.log("Testing entries():");
+console.log(hashMap.entries());
