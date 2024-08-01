@@ -15,7 +15,7 @@ hashMap.set("jacket", "blue");
 hashMap.set("kite", "pink");
 hashMap.set("lion", "golden");
 
-console.log("Populated hash map before going load factor:")
+console.log("Populated hash map before going over load factor:")
 console.log(hashMap.entries());
 
 hashMap.set("hat", "rainbow");
@@ -29,4 +29,8 @@ console.log("Changed value of 'grape':");
 console.log(hashMap.entries());
 hashMap.set("hat", "black");
 console.log("Changed value of 'hat' again:");
+console.log(hashMap.entries());
+
+hashMap.set('moon', 'silver')
+console.log("Surpassed load factor with 'moon' key:")
 console.log(hashMap.entries());
