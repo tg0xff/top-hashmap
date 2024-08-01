@@ -96,7 +96,7 @@ export default class HashMap {
     this.capacity = 16;
     this.buckets = [];
   }
-  makeArray(cb) {
+  #makeArray(cb) {
     return this.buckets.reduce((array, bucket) => {
       let listItem = bucket;
       while (listItem) {
@@ -107,12 +107,12 @@ export default class HashMap {
     }, []);
   }
   keys() {
-    return this.makeArray((listItem) => listItem.key);
+    return this.#makeArray((listItem) => listItem.key);
   }
   values() {
-    return this.makeArray((listItem) => listItem.value);
+    return this.#makeArray((listItem) => listItem.value);
   }
   entries() {
-    return this.makeArray((listItem) => [listItem.key, listItem.value]);
+    return this.#makeArray((listItem) => [listItem.key, listItem.value]);
   }
 }
