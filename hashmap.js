@@ -118,15 +118,7 @@ export default class HashMap {
     return keys;
   }
   values() {
-    const values = [];
-    for (const bucket of this.buckets) {
-      let listItem = bucket;
-      while (listItem) {
-        values.push(listItem.value);
-        listItem = listItem.next;
-      }
-    }
-    return values;
+    return this.makeArray((listItem) => listItem.value);
   }
   entries() {
     return this.makeArray((listItem) => [listItem.key, listItem.value]);
