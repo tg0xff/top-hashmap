@@ -49,4 +49,7 @@ export default function testHashSet() {
     `Added 'axolotl' and testing length() again: ${hashSet.length()}`,
   );
   console.log(hashSet.buckets);
+
+  console.log("Testing keys():");
+  console.log(hashSet.keys());
 }
