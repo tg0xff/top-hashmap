@@ -29,7 +29,7 @@ export default function testHashSet() {
   console.log("Added 'mango', and 'cherry' keys again:");
   console.log(hashSet.buckets);
 
-  hashMap.set("lambda");
+  hashSet.set("lambda");
   console.log("Surpassed load factor with 'lambda' key:");
-  console.log(hashMap.buckets);
+  console.log(hashSet.buckets);
 }
