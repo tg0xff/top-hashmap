@@ -35,4 +35,10 @@ export default function testHashSet() {
 
   console.log(`Testing has("lambda"): ${hashSet.has("lambda")}`);
   console.log(`Testing has("lol") (non-existent): ${hashSet.has("lol")}`);
+
+  console.log(`Testing remove("lambda"): ${hashSet.remove("lambda")}`);
+  console.log(
+    `Testing remove("quite") (non-existent): ${hashSet.remove("quite")}`,
+  );
+  console.log(hashSet.buckets);
 }
