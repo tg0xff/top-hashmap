@@ -188,4 +188,9 @@ class HashSet {
   length() {
     return this.#length;
   }
+  clear() {
+    this.buckets = [];
+    this.#length = 0;
+    this.#capacity = 16;
+  }
 }
