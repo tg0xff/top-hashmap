@@ -15,22 +15,22 @@ hashMap.set("jacket", "blue");
 hashMap.set("kite", "pink");
 hashMap.set("lion", "golden");
 
-console.log("Populated hash map before going over load factor:")
-console.log(hashMap.entries());
+console.log("Populated hash map before going over load factor:");
+console.log(hashMap.buckets);
 
 hashMap.set("hat", "rainbow");
 console.log("Changed value of 'hat':");
-console.log(hashMap.entries());
+console.log(hashMap.buckets);
 hashMap.set("kite", "mauve");
 console.log("Changed value of 'kite':");
-console.log(hashMap.entries());
+console.log(hashMap.buckets);
 hashMap.set("grape", "light green");
 console.log("Changed value of 'grape':");
-console.log(hashMap.entries());
+console.log(hashMap.buckets);
 hashMap.set("hat", "black");
 console.log("Changed value of 'hat' again:");
-console.log(hashMap.entries());
+console.log(hashMap.buckets);
 
-hashMap.set('moon', 'silver')
-console.log("Surpassed load factor with 'moon' key:")
-console.log(hashMap.entries());
+hashMap.set("moon", "silver");
+console.log("Surpassed load factor with 'moon' key:");
+console.log(hashMap.buckets);

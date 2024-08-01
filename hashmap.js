@@ -1,7 +1,7 @@
 export default class HashMap {
   #capacity = 16;
   #loadFactor = 0.75;
-  #buckets = [];
+  buckets = [];
   #length = 0;
   #hash(key) {
     let hashCode = 0;
@@ -26,7 +26,7 @@ export default class HashMap {
       next: null,
     };
 
-    let currentBucketItem = this.#buckets[hashCode];
+    let currentBucketItem = this.buckets[hashCode];
     while (currentBucketItem) {
       if (currentBucketItem.key === data.key) {
         currentBucketItem.value = data.value;
@@ -40,12 +40,12 @@ export default class HashMap {
     }
 
     this.#length++;
-    this.#buckets[hashCode] = data;
+    this.buckets[hashCode] = data;
   }
   get(key) {
     const hashCode = this.#hash(key);
     this.#checkIndex(hashCode);
-    let currentBucketItem = this.#buckets[hashCode];
+    let currentBucketItem = this.buckets[hashCode];
     while (currentBucketItem) {
       if (key === currentBucketItem.key) {
         return currentBucketItem.value;
@@ -57,7 +57,7 @@ export default class HashMap {
   has(key) {
     const hashCode = this.#hash(key);
     this.#checkIndex(hashCode);
-    let currentBucketItem = this.#buckets[hashCode];
+    let currentBucketItem = this.buckets[hashCode];
     while (currentBucketItem) {
       if (key === currentBucketItem.key) {
         return true;
@@ -69,9 +69,9 @@ export default class HashMap {
   remove(key) {
     const hashCode = this.#hash(key);
     this.#checkIndex(hashCode);
-    let currentBucketItem = this.#buckets[hashCode];
+    let currentBucketItem = this.buckets[hashCode];
     if (key === currentBucketItem.key) {
-      this.#buckets[hashCode] = currentBucketItem.next;
+      this.buckets[hashCode] = currentBucketItem.next;
       this.#length--;
       return true;
     }
@@ -90,11 +90,11 @@ export default class HashMap {
   }
   clear() {
     this.#capacity = 16;
-    this.#buckets = [];
+    this.buckets = [];
     this.#length = 0;
   }
   #makeArray(cb) {
-    return this.#buckets.reduce((array, bucket) => {
+    return this.buckets.reduce((array, bucket) => {
       let listItem = bucket;
       while (listItem) {
         array.push(cb(listItem));
@@ -116,7 +116,7 @@ export default class HashMap {
     if (this.#length < this.#capacity * this.#loadFactor) return;
     this.#capacity *= 2;
     const entries = this.entries();
-    this.#buckets = [];
+    this.buckets = [];
     entries.forEach((entry) => this.set(...entry));
   }
 }
