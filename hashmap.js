@@ -1,19 +1,17 @@
 export default class HashMap {
-  constructor() {
-    this.capacity = 16;
-    this.loadFactor = 0.75;
-    this.buckets = [];
-  }
+  #capacity = 16;
+  #loadFactor = 0.75;
+  #buckets = [];
   hash(key) {
     let hashCode = 0;
     const primeNumber = 31;
     for (let i = 0; i < key.length; i++) {
       hashCode = primeNumber * hashCode + key.charCodeAt(i);
     }
-    return hashCode % this.capacity;
+    return hashCode % this.#capacity;
   }
   checkIndex(index) {
-    if (index < 0 || index >= this.capacity) {
+    if (index < 0 || index >= this.#capacity) {
       throw new Error("Trying to access index out of bound");
     }
   }
@@ -27,7 +25,7 @@ export default class HashMap {
       next: null,
     };
 
-    let currentBucketItem = this.buckets[hashCode];
+    let currentBucketItem = this.#buckets[hashCode];
     while (currentBucketItem) {
       if (currentBucketItem.key === data.key) {
         currentBucketItem.value = data.value;
@@ -39,12 +37,12 @@ export default class HashMap {
       currentBucketItem = currentBucketItem.next;
     }
 
-    this.buckets[hashCode] = data;
+    this.#buckets[hashCode] = data;
   }
   get(key) {
     const hashCode = this.hash(key);
     this.checkIndex(hashCode);
-    let currentBucketItem = this.buckets[hashCode];
+    let currentBucketItem = this.#buckets[hashCode];
     while (currentBucketItem) {
       if (key === currentBucketItem.key) {
         return currentBucketItem.value;
@@ -56,7 +54,7 @@ export default class HashMap {
   has(key) {
     const hashCode = this.hash(key);
     this.checkIndex(hashCode);
-    let currentBucketItem = this.buckets[hashCode];
+    let currentBucketItem = this.#buckets[hashCode];
     while (currentBucketItem) {
       if (key === currentBucketItem.key) {
         return true;
@@ -68,9 +66,9 @@ export default class HashMap {
   remove(key) {
     const hashCode = this.hash(key);
     this.checkIndex(hashCode);
-    let currentBucketItem = this.buckets[hashCode];
+    let currentBucketItem = this.#buckets[hashCode];
     if (key === currentBucketItem.key) {
-      this.buckets[hashCode] = currentBucketItem.next;
+      this.#buckets[hashCode] = currentBucketItem.next;
       return true;
     }
     while (currentBucketItem) {
@@ -84,7 +82,7 @@ export default class HashMap {
   }
   length() {
     let length = 0;
-    for (const bucket of this.buckets) {
+    for (const bucket of this.#buckets) {
       let listItem = bucket;
       while (listItem) {
         length++;
@@ -94,11 +92,11 @@ export default class HashMap {
     return length;
   }
   clear() {
-    this.capacity = 16;
-    this.buckets = [];
+    this.#capacity = 16;
+    this.#buckets = [];
   }
   #makeArray(cb) {
-    return this.buckets.reduce((array, bucket) => {
+    return this.#buckets.reduce((array, bucket) => {
       let listItem = bucket;
       while (listItem) {
         array.push(cb(listItem));
@@ -117,10 +115,10 @@ export default class HashMap {
     return this.#makeArray((listItem) => [listItem.key, listItem.value]);
   }
   #resize() {
-    if (this.length() < this.capacity * this.loadFactor) return;
-    this.capacity *= 2;
+    if (this.length() < this.#capacity * this.#loadFactor) return;
+    this.#capacity *= 2;
     const entries = this.entries();
-    this.buckets = [];
+    this.#buckets = [];
     entries.forEach((entry) => this.set(...entry));
   }
 }
