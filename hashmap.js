@@ -172,11 +172,13 @@ class HashSet {
     let listItem = this.buckets[hashCode];
     if (listItem && key === listItem.key) {
       this.buckets[hashCode] = null;
+      this.#length--;
       return true;
     }
     while (listItem) {
       if (listItem.next && key === listItem.next.key) {
         listItem.next = listItem.next.next;
+        this.#length--;
         return true;
       }
       listItem = listItem.next;
