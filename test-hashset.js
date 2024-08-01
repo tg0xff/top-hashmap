@@ -52,4 +52,8 @@ export default function testHashSet() {
 
   console.log("Testing keys():");
   console.log(hashSet.keys());
+
+  hashSet.clear();
+  console.log("Called clear() and now testing it with keys():");
+  console.log(hashSet.keys());
 }
