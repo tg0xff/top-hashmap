@@ -47,3 +47,7 @@ console.log(hashMap.buckets);
 hashMap.set("banana", "nuclear");
 console.log("Changed value of 'banana':");
 console.log(hashMap.buckets);
+
+console.log(`Testing get("lion"): ${hashMap.get("lion")}`);
+console.log(`Testing get("moon"): ${hashMap.get("moon")}`);
+console.log(`Testing get("mon") (non-existent): ${hashMap.get("mon")}`);
