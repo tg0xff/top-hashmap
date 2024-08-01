@@ -58,7 +58,9 @@ console.log(`Testing has("caramel") (non-existent): ${hashMap.has("caramel")}`);
 
 console.log(`Testing remove("frog"): ${hashMap.remove("frog")}`);
 console.log(`Testing remove("lion"): ${hashMap.remove("lion")}`);
-console.log(`Testing remove("camel") (non-existent): ${hashMap.remove("camel")}`);
+console.log(
+  `Testing remove("camel") (non-existent): ${hashMap.remove("camel")}`,
+);
 
 console.log(`Testing length(): ${hashMap.length()}`);
 console.log(hashMap.buckets);
