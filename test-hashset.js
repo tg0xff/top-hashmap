@@ -21,5 +21,5 @@ export default function testHashSet() {
   console.log(
     "Add as many keys as possible without going over the load factor:",
   );
-  console.log(hashSet.keys());
+  console.log(hashSet.buckets);
 }
