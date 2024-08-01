@@ -202,4 +202,10 @@ class HashSet {
       }
     }, []);
   }
+  #resize() {
+    this.#capacity *= 2;
+    const keys = this.keys();
+    this.buckets = [];
+    keys.forEach((key) => this.#addKey(key));
+  }
 }
