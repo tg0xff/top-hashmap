@@ -33,11 +33,13 @@ export default class HashMap {
         return;
       } else if (currentBucketItem.next === null) {
         currentBucketItem.next = data;
+        this.#length++;
         return;
       }
       currentBucketItem = currentBucketItem.next;
     }
 
+    this.#length++;
     this.#buckets[hashCode] = data;
   }
   get(key) {
@@ -70,11 +72,13 @@ export default class HashMap {
     let currentBucketItem = this.#buckets[hashCode];
     if (key === currentBucketItem.key) {
       this.#buckets[hashCode] = currentBucketItem.next;
+      this.#length--;
       return true;
     }
     while (currentBucketItem) {
       if (currentBucketItem.next && key === currentBucketItem.next.key) {
         currentBucketItem.next = currentBucketItem.next.next;
+        this.#length--;
         return true;
       }
       currentBucketItem = currentBucketItem.next;
