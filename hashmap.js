@@ -157,4 +157,14 @@ class HashSet {
   set(key) {
     if (this.#addKey(key)) this.#length++;
   }
+  has(key) {
+    for (const bucket of buckets) {
+      let listItem = bucket;
+      while (listItem) {
+        if (listItem.key === key) return true;
+        listItem = listItem.next;
+      }
+    }
+    return false;
+  }
 }
