@@ -14,3 +14,5 @@ hashMap.set("ice cream", "white");
 hashMap.set("jacket", "blue");
 hashMap.set("kite", "pink");
 hashMap.set("lion", "golden");
+
+console.log(`Populated hash map before going load factor.\nContents:\n${hashMap.entries()}`)
