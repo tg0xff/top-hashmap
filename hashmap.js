@@ -72,7 +72,7 @@ export default class HashMap {
       return true;
     }
     while (currentBucketItem) {
-      if (key === currentBucketItem.next.key) {
+      if (currentBucketItem.next && key === currentBucketItem.next.key) {
         currentBucketItem.next = currentBucketItem.next.next;
         return true;
       }
