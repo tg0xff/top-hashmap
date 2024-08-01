@@ -159,7 +159,7 @@ export class HashSet {
     if (this.#length > this.#capacity * this.#loadFactor) this.#resize();
   }
   has(key) {
-    for (const bucket of buckets) {
+    for (const bucket of this.buckets) {
       let listItem = bucket;
       while (listItem) {
         if (listItem.key === key) return true;
