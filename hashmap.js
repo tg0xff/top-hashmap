@@ -129,13 +129,6 @@ export default class HashMap {
     return values;
   }
   entries() {
-    return this.buckets.reduce((entries, bucket) => {
-      let listItem = bucket;
-      while (listItem) {
-        entries.push([listItem.key, listItem.value]);
-        listItem = listItem.next;
-      }
-      return entries;
-    }, []);
+    return this.makeArray((listItem) => [listItem.key, listItem.value]);
   }
 }
