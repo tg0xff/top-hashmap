@@ -31,6 +31,8 @@ export default class HashMap {
     while (currentBucketItem) {
       if (currentBucketItem.key === data.key) {
         currentBucketItem.value = data.value;
+        // The #length field shouldn't grow whenever a key's value is
+        // merely updated. Hence this return value.
         return false;
       } else if (currentBucketItem.next === null) {
         currentBucketItem.next = data;
