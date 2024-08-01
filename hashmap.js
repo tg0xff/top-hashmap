@@ -167,4 +167,20 @@ class HashSet {
     }
     return false;
   }
+  remove(key) {
+    const hashCode = this.#hash(key);
+    let listItem = this.buckets[hashCode];
+    if (listItem && key === listItem.key) {
+      this.buckets[hashCode] = null;
+      return true;
+    }
+    while (listItem) {
+      if (listItem.next && key === listItem.next.key) {
+        listItem.next = listItem.next.next;
+        return true;
+      }
+      listItem = listItem.next;
+    }
+    return false;
+  }
 }
