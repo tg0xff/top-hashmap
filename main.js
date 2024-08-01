@@ -72,3 +72,7 @@ console.log("Testing values():");
 console.log(hashMap.values());
 console.log("Testing entries():");
 console.log(hashMap.entries());
+
+hashMap.clear();
+console.log("Called clear() and now testing it with entries():");
+console.log(hashMap.entries());
