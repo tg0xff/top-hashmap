@@ -41,4 +41,12 @@ export default function testHashSet() {
     `Testing remove("quite") (non-existent): ${hashSet.remove("quite")}`,
   );
   console.log(hashSet.buckets);
+
+  console.log(`Testing length(): ${hashSet.length()}`);
+  console.log(hashSet.buckets);
+  hashSet.set("axolotl");
+  console.log(
+    `Added 'axolotl' and testing length() again: ${hashSet.length()}`,
+  );
+  console.log(hashSet.buckets);
 }
